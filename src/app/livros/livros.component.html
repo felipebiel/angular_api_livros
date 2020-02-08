@@ -1,0 +1,32 @@
+<div class="card text-center border-primary" style="margin-top: 15px;">
+  <div class="card-header bg-primary text-white">
+    Livros Disponiveis
+  </div>
+  <div class="card-body">
+    <div class="loader" *ngIf="exibir == true">
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="erro == true">
+      {{ texto_erro }}
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let livro of livros">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="http://assys.com.br/desenvolvimento/api/public/capas/{{ livro.capa }}" alt="Card image cap">
+          <div class="card-block align-middle">
+            <h4 class="card-title">{{ livro.titulo }}</h4>
+            <p class="card-text">{{ livro.resumo}}</p>
+          </div>
+          <div class="card-footer-livro">
+            <small class="text-muted">Autor : {{ livro.autor}}</small>
+            <a class="btn btn-primary  float-right" [routerLink]="['livro', livro.id]">Ler</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-footer text-muted">
+    Trabalho de Desenvolvimento Móvel
+  </div>
+</div>

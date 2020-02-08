@@ -1,0 +1,20 @@
+
+<div class="card  border-primary" style="margin-top: 15px;">
+  <div class="card-header text-center bg-primary text-white">
+    Ler Livro
+  </div>
+  <div class="card-body">
+    <div class="loader" *ngIf="exibir == true">
+    </div>
+
+    <h5 class="card-title text-center " *ngIf="exibir == false">{{ livro.titulo }}</h5>
+
+    <img class="img-grid img-fluid float-left margem_img img-thumbnail" *ngIf="exibir == false" src="http://assys.com.br/desenvolvimento/api/public/capas/{{ livro.capa }}" width="320">
+
+    <p class="card-text" *ngIf="exibir == false">{{ livro.conteudo}}</p>
+    <a routerLink="" class="btn btn-secondary">Voltar</a>
+  </div>
+  <div class="card-footer text-muted text-center" *ngIf="exibir == false">
+    {{ livro.created_at }} - {{ livro.autor}}
+  </div>
+</div>
